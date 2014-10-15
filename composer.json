@@ -1,6 +1,6 @@
 {
     "name": "sukohi/mtriv",
-    "description": "",
+    "description": "A PHP package mainly developed for Laravel to verfy simply.",
     "authors": [
         {
             "name": "Sukohi",
