@@ -1,24 +1,35 @@
 Mtriv
 =====
 
-A PHP package mainly developed for Laravel to verfy simply.
+A PHP package mainly developed for Laravel to verify simply.  
+(This is for Laravel 5+. [For Laravel 4.2](https://github.com/SUKOHI/Mtriv/tree/1.0))
 
-Installation&setting for Laravel
+Installation
 ====
 
-After installation using composer, add the followings to the array in  app/config/app.php
+Add this package name in composer.json
 
-    'providers' => array(  
+    "require": {
+      "sukohi/mtriv": "2.*"
+    }
+
+Execute composer command.
+
+    composer update
+
+Register the service provider in app.php
+
+    'providers' => [
         ...Others...,  
-        'Sukohi\Mtriv\MtrivServiceProvider',
-    )
+        Sukohi\Mtriv\MtrivServiceProvider::class,
+    ]
 
-Also
+Also alias
 
-    'aliases' => array(  
+    'aliases' => [
         ...Others...,  
-        'Mtriv' =>'Sukohi\Mtriv\Facades\Mtriv',
-    )
+        'Mtriv'   => Sukohi\Mtriv\Facades\Mtriv::class
+    ]
 
 Usage
 ====
@@ -27,13 +38,19 @@ At first generate public key using secret key, string and expiration(skippable) 
 
     $str = 'STRING, ID and so on...';
     $expiration = time(); // Skippable
-    
-    $public_key = Mtriv::secretKey('SECRET_KEY')->publicKey($str, $expiration);
+    $public_key = \Mtriv::secretKey('SECRET_KEY')->publicKey($str, $expiration);
 
 and then you can verify.
 
-    if(Mtriv::secretKey('SECRET_KEY')->check($str, $public_key, $expiration)) {
+    if(\Mtriv::secretKey('SECRET_KEY')->check($str, $public_key, $expiration)) {
 			
         echo 'success!';
 			
     }
+    
+License
+====
+
+This package is licensed under the MIT License.
+
+Copyright 2014 Sukohi Kuhoh

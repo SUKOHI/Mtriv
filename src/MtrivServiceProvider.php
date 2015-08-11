@@ -9,7 +9,7 @@ class MtrivServiceProvider extends ServiceProvider {
 	 *
 	 * @var bool
 	 */
-	protected $defer = false;
+	protected $defer = true;
 
 	/**
 	 * Bootstrap the application events.
@@ -18,7 +18,7 @@ class MtrivServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('sukohi/mtriv');
+		//
 	}
 
 	/**
@@ -41,7 +41,7 @@ class MtrivServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array('Mtriv');
+		return ['Mtriv'];
 	}
 
 }
