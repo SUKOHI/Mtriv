@@ -1,24 +1,35 @@
 Mtriv
 =====
 
-A PHP package mainly developed for Laravel to verfy simply.
+A PHP package mainly developed for Laravel to verify simply.  
+(This is for Laravel 4.2. [For Laravel 5](https://github.com/SUKOHI/Mtriv))
 
-Installation&setting for Laravel
+Installation
 ====
 
-After installation using composer, add the followings to the array in  app/config/app.php
+Add this package name in composer.json
 
-    'providers' => array(  
+    "require": {
+      "sukohi/mtriv": "1.*"
+    }
+
+Execute composer command.
+
+    composer update
+
+Register the service provider in app.php
+
+    'providers' => [
         ...Others...,  
         'Sukohi\Mtriv\MtrivServiceProvider',
-    )
+    ]
 
-Also
+Also alias
 
-    'aliases' => array(  
+    'aliases' => [
         ...Others...,  
-        'Mtriv' =>'Sukohi\Mtriv\Facades\Mtriv',
-    )
+        'Mtriv' => 'Sukohi\Mtriv\Facades\Mtriv',
+    ]
 
 Usage
 ====
@@ -37,3 +48,10 @@ and then you can verify.
         echo 'success!';
 			
     }
+        
+License
+====
+
+This package is licensed under the MIT License.
+
+Copyright 2015 Sukohi Kuhoh
