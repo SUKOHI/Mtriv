@@ -28,10 +28,11 @@ class MtrivServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['Mtriv'] = $this->app->share(function($app)
-		{
-			return new Mtriv;
-		});
+        $this->app->singleton('Mtriv', function(){
+
+            return new Mtriv;
+
+        });
 	}
 
 	/**
